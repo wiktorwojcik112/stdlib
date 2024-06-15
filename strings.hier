@@ -1,0 +1,28 @@
+\* Split string on provided separator *\
+(@split (| value sep) {
+    (if (! (is value String)) {
+        (error "Expected string.")
+      })
+
+    (@components (&))
+    (@n (length value))
+    (@i 0)
+    (@current "")
+    (for value {
+        (if (== element sep) {
+            (=components (append components current))
+            (=current "")
+          } {
+              (=current (append current element))
+            })
+      })
+    (if (!= current "") {
+        (=components (append components current))
+      })
+    (get components)
+  })
+
+\* Split string on spaces *\
+(@split_sp (| value) {
+    (split value " ")
+  })
