@@ -8,3 +8,11 @@
       })
     (get result)
   })
+
+(@filter (| list block) {
+    (@result (&))
+    (for list !(if (block element) !(=result (result.append element))) )
+    (get result)
+  })
+
+
