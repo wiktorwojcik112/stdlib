@@ -23,6 +23,14 @@
   })
 
 \* Split string on spaces *\
-(@split_sp (| value) {
-    (split value " ")
+(@split_sp (| value) !(split value " ") )
+
+\* Concatenate values of a list into a string *\
+(@concat (| list sep) {
+    (@result "")
+    (for list !(=result (result.append (append (element.string) sep))) )
+    (get result)
   })
+
+\* Concatenate values of a list into a string using spaces *\
+(@concat_sp (| list) !(concat list " ") )
