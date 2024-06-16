@@ -1,0 +1,10 @@
+(@contains (| list value) {
+    (@result false)
+    (for list {
+        (if (== element value) {
+            (=result true)
+            (break)
+          })
+      })
+    (get result)
+  })
