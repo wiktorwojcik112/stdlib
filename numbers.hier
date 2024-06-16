@@ -1,6 +1,6 @@
 (@max (| a b) !(if (a.> b) !(get a) !(get b)))
 (@min (| a b) !(if (a.< b) !(get a) !(get b)))
 
-/* a to the power of n. Only handles positive n for now */
+/* a to the power of n; Only handles positive n for now */
 (@pow (| a n) !(if (n.> 0) !(* a (pow a (- n 1))) !(get 1)))
 
